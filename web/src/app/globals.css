@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --shadow-light: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --shadow-dark: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px, rgba(31, 34, 54, 0.6) 0px 3px 7px -3px;
+  --color-custom: #00c7fe;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('../../public/fonts/Barlow-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('../../public/fonts/Barlow-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+ 
+@font-face {
+  font-family: 'Barlow';
+  src: url('../../public/fonts/Barlow-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+html, body{
+  font-family: 'Barlow';
+  position: relative;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.shadow-custom-light-mode{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.shadow-custom-dark-mode{
+  box-shadow: rgba(255, 255, 255, 0.9) 0px 6px 12px -2px, rgba(255, 255, 255, 0.9) 0px 3px 7px -3px;
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Transiciones para color si quieres */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.shine-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.shine-effect:hover::before {
+  animation: shineMove 0.8s ease forwards;
+}
+
+@keyframes shineMove {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}

@@ -1,0 +1,19 @@
+GET http://localhost:1337/api/categories?fields=name,slug,description,colorcat
+
+Authorization: Bearer 0f237cf4b11ae500214829273fd27b45949234b3036fd41732d0f7d036fb41938f5da0ad64160ff75ee1f7a810e73fb7c108424b381109023a02a190c319f7f4240ac1266e1689f3f0edd48272767fe974b7bbae0dff513ec06a076b61937dbc505754808f5f3b32f4ab6a03eb99aac77dd95d8e7bb06f90708a84de03633cfe
+
+###
+
+GET http://localhost:1337/api/posts?fields=titulo,slug,contenido,fecha&populate[portada]=true&populate[category][populate]=image&populate[author]=true
+
+Authorization: Bearer 0f237cf4b11ae500214829273fd27b45949234b3036fd41732d0f7d036fb41938f5da0ad64160ff75ee1f7a810e73fb7c108424b381109023a02a190c319f7f4240ac1266e1689f3f0edd48272767fe974b7bbae0dff513ec06a076b61937dbc505754808f5f3b32f4ab6a03eb99aac77dd95d8e7bb06f90708a84de03633cfe
+
+### 
+GET http://localhost:1337/api/posts?filters[slug][eq]=${what-is-html-a-beginner-s-guide-to-the-web-s-core-language}&fields=titulo,slug,contenido,fecha&populate[portada]=true&populate[category][populate]=image&populate[author]=true
+
+Authorization: Bearer 0f237cf4b11ae500214829273fd27b45949234b3036fd41732d0f7d036fb41938f5da0ad64160ff75ee1f7a810e73fb7c108424b381109023a02a190c319f7f4240ac1266e1689f3f0edd48272767fe974b7bbae0dff513ec06a076b61937dbc505754808f5f3b32f4ab6a03eb99aac77dd95d8e7bb06f90708a84de03633cfe
+###
+
+GET http://localhost:1337/api/categories?filters[slug][$eq]=${html}&fields=name,slug,colorcat&populate=image
+
+Authorization: Bearer 0f237cf4b11ae500214829273fd27b45949234b3036fd41732d0f7d036fb41938f5da0ad64160ff75ee1f7a810e73fb7c108424b381109023a02a190c319f7f4240ac1266e1689f3f0edd48272767fe974b7bbae0dff513ec06a076b61937dbc505754808f5f3b32f4ab6a03eb99aac77dd95d8e7bb06f90708a84de03633cfe
