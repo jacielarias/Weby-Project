@@ -1,5 +1,5 @@
 import { query } from "./strapi";
-const { STRAPI_HOST } = process.env;
+
 
 export function getPosts() {
     return query(`posts?fields=titulo,slug,contenido,fecha&populate[portada]=true&populate[category][populate]=image&populate[author]=true`)
@@ -7,8 +7,8 @@ export function getPosts() {
             return res.data.map(post => {
                 const { id, titulo, slug, contenido, portada: rawImage, fecha, category, author } = post;
 
-                const image = `${STRAPI_HOST}${rawImage.url}`;
-                const categoryImg = category?.image?.url ? `${STRAPI_HOST}${category.image.url}` : null;
+                const image = `${process.env.NEXTAUTH_URL}${rawImage.url}`;
+                const categoryImg = category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null;
 
                 return {
                     id,
