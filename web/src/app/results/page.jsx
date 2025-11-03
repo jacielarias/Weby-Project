@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import getSearchResults from "@/lib/get-search-results";
 import Link from "next/link";
 import { getPosts } from "@/lib/get-posts";
