@@ -7,7 +7,7 @@ function getCategories (){
             return res.data.map(category => {
                 const { name, description, slug, image: rawImage, colorcat } = category;
 
-                const img = `${process.env.NEXTAUTH_URL}${rawImage.url}`
+                const img = `${process.env.STRAPI_URL}${rawImage.url}`
 
                 return { name, description, slug, img, colorcat }
             })
