@@ -29,7 +29,7 @@ const getSearchResults = async ({ searchInput, page = 1, pageSize = 6 }) => {
       };
     }
 
-    const baseUrl = process.env.NEXTAUTH_URL || "";
+    const baseUrl = process.env.STRAPI_URL || "";
 
     const posts = res.data.map((post) => {
       const { id, titulo, slug, contenido, portada, fecha, category, author } =
