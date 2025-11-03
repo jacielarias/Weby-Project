@@ -26,12 +26,18 @@ const ExplorePostSingleColumn = ({ explorePosts, title, subTitle }) => {
                             '--category-color': `${explorePosts[0]?.category.colorcat}`,
                         }}
                     >
-                        <img
-                            src={explorePosts[0]?.image}
-                            loading="lazy"
-                            className="w-full aspect-video object-cover block shadow-light dark:shadow-dark"
-                            alt={explorePosts[0]?.titulo}
-                        />
+                        {explorePosts[0]?.image ? (
+                            <img
+                                src={explorePosts[0]?.image}
+                                loading="lazy"
+                                className="w-full aspect-video object-cover block shadow-light dark:shadow-dark"
+                                alt={explorePosts[0]?.titulo}
+                            />
+                        ) : (
+                            <div className="w-full aspect-video bg-gray-200 dark:bg-gray-700 flex items-center justify-center shadow-light dark:shadow-dark">
+                                <span className="text-gray-400 text-xs">No image</span>
+                            </div>
+                        )}
                             <div className="w-full mt-3.5">
                                 <CategoryBadge 
                                     boxShadow={explorePosts[0]?.category.colorcat}

@@ -5,6 +5,9 @@ import Link from "next/link";
 import CategoryBadge from "./CategoryBadge";
 
 const PostItem = ({ postLink, colorcat, postImg, postTitle, postCategoryName, postDate, postAuthor, postContent }) => {
+
+    const hasImage = !!postImg;
+
     return (
         <Link
             href={`/post/${postLink}`}
@@ -14,12 +17,19 @@ const PostItem = ({ postLink, colorcat, postImg, postTitle, postCategoryName, po
             }}
         >
             <div className="w-full sm:w-[40%] aspect-video sm:aspect-square overflow-hidden shadow-light dark:shadow-dark">
+                {hasImage ? (
                 <img
                     src={postImg}
                     loading="lazy"
                     className="w-full h-full object-cover block"
                     alt={postTitle}
                 />
+                ) : (
+                // Placeholder gris suave
+                <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <span className="text-gray-400 text-sm">No image</span>
+                </div>
+                )}
             </div>
             <div className="w-full sm:w-[70%] overflow-hidden p-1">
                 <CategoryBadge 

@@ -42,12 +42,18 @@ const ExplorePostFilterByCat = ({ categories, explorePostByCat, selectCategory, 
                         }}
                     >
                         <div className="w-full sm:w-[50%] md:w-[20%] aspect-square overflow-hidden shadow-light dark:shadow-dark">
-                            <img
-                                src={post.image}
-                                loading="lazy"
-                                className="w-full h-full object-cover block"
-                                alt={post.titulo}
-                            />
+                            {post.image ? (
+                                <img
+                                    src={post.image}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover block"
+                                    alt={post.titulo}
+                                />
+                            ) : (
+                                <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                    <span className="text-gray-400 text-xs">No image</span>
+                                </div>
+                            )}
                         </div>
                         <div className="w-full sm:w-3/5 overflow-hidden p-1">
                             <div className="flex items-center gap-1.5">

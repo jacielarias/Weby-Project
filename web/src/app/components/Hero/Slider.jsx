@@ -41,12 +41,21 @@ const Slider = ({ posts }) => {
                         '--category-color': `${post.category.colorcat}`,
                     }}
                 >
-                    <img
-                        src={post.image}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                        alt={post.titulo}
-                    />
+                    {/* Imagen o placeholder */}
+                    {post.image ? (
+                        <img
+                            src={post.image}
+                            loading="lazy"
+                            className="w-full h-full object-cover"
+                            alt={post.titulo}
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex flex-col items-center justify-center text-gray-400">
+                            <MdImage className="text-6xl mb-2" />
+                            <span className="text-sm md:text-base">No image available</span>
+                        </div>
+                    )}
+
                     {/* Gradient */}
                     <div 
                         className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[rgba(0,0,0,0.8)]/50 to-transparent z-0">

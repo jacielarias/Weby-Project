@@ -34,7 +34,7 @@ const MiniSlider = ({ posts }) => {
                 className="flex w-full h-full overflow-x-auto flex-nowrap overflow-y-hidden scrollbar-hide gap-4 md:gap-0" 
                 ref={sliderRef}
             >
-                {posts.map((post, index) => (
+                {posts?.map((post, index) => (
                     <Link key={index} 
                         href={`/post/${post.slug}`} 
                         className={`relative w-full md:min-w-[150px] max-w-[420px] h-full group flex justify-between items-center gap-2 md:gap-5 p-0 md:p-3 group`}
@@ -43,11 +43,18 @@ const MiniSlider = ({ posts }) => {
                             flex: "0 0 auto"
                         }}
                     >
-                        <img 
-                            src={post.image}
-                            loading="lazy" 
-                            className="w-[30%] md:w-[30%] aspect-square h-full object-cover shadow-light dark:shadow-dark"  
-                        />
+                        {post.image ? (
+                            <img 
+                                src={post.image} 
+                                loading="lazy" 
+                                alt={post.titulo || "Post image"} 
+                                className="w-[30%] md:w-[30%] aspect-square h-full object-cover shadow-light dark:shadow-dark" 
+                            />
+                            ) : (
+                            <div className="w-[30%] md:w-[30%] aspect-square h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-400 text-xs md:text-sm font-medium shadow-light dark:shadow-dark">
+                                No image
+                            </div>
+                        )}
                         
                         {/* Degradado 
                             <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-[rgba(0,0,0,0.9)]/50 to-transparent z-0"></div>*/}

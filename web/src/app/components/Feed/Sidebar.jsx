@@ -60,12 +60,18 @@ const Sidebar =  ({ recentPosts, categories, postsLength }) => {
                                 key={index} 
                                 className="flex lg:justify-between items-center gap-2 group relative"
                             >
-                                <img                     
-                                    src={post.image}
-                                    loading="lazy"
-                                    className="object-cover max-w-[120px] max-h-[120px] rounded-full aspect-square overflow-hidden shadow-light dark:shadow-dark"
-                                    alt={post.titulo} 
-                                />
+                                {post?.image ? (
+                                    <img
+                                        src={post.image}
+                                        loading="lazy"
+                                        className="object-cover max-w-[120px] max-h-[120px] rounded-full aspect-square overflow-hidden shadow-light dark:shadow-dark"
+                                        alt={post?.titulo || "Post image"}
+                                    />
+                                ) : (
+                                    <div className="max-w-[120px] max-h-[120px] aspect-square rounded-full bg-gray-200 dark:bg-gray-700 flex justify-center items-center shadow-light dark:shadow-dark">
+                                        <span className="text-gray-400 text-xs">No image</span>
+                                    </div>
+                                )}
                                 <div className="flex flex-col w-[90%]">
                                     <h3 className="text-md overflow-hidden font-extrabold group-hover:text-custom transition-colors duration-300 ease-in-out">
                                         {post.titulo.charAt(0).toUpperCase() + post.titulo.slice(1)}

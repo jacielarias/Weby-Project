@@ -41,12 +41,19 @@ const Footer = async () => {
                                 }}
                             >
                             <div className="aspect-square w-[100px]  sm:w-[120px] flex-shrink-0 overflow-hidden shadow-light dark:shadow-dark">
-                            <img
-                                src={post.image}
-                                loading="lazy"
-                                className="w-full h-full object-cover"
-                                alt={post.titulo}
-                            />
+                                    {post.image ? (
+                                        <img
+                                            src={post.image}
+                                            loading="lazy"
+                                            className="w-full h-full object-cover"
+                                            alt={post.titulo}
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex flex-col items-center justify-center text-gray-400">
+                                            <MdImage className="text-3xl mb-1" />
+                                            <span className="text-xs">No image</span>
+                                        </div>
+                                    )}
                             </div>
                                 <div className="w-full">
                                     <CategoryBadge 
