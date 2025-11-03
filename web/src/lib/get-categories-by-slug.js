@@ -9,7 +9,7 @@ export async function getCategoriesBySlug(slug){
 
     const { name, description, slug: catSlug, image: rawImage, colorcat } = category;
 
-    const img = `${process.env.NEXTAUTH_URL}${rawImage}`
+    const img = `${process.env.STRAPI_URL}${rawImage}`
 
     return { name, description, slug: catSlug, img, colorcat }
 };
