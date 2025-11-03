@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // Components
 import Header from "./components/HeaderClient";
 import Hero from "./components/Hero/Hero";
