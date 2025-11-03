@@ -1,5 +1,5 @@
 import { query } from "./strapi";
-const { STRAPI_HOST } = process.env;
+
 
 export async function getCategoriesBySlug(slug){
     const res = await query(`categories?filters[slug][$eq]=${slug}&fields=name,slug,colorcat,description&populate=image`);
@@ -9,7 +9,7 @@ export async function getCategoriesBySlug(slug){
 
     const { name, description, slug: catSlug, image: rawImage, colorcat } = category;
 
-    const img = `${STRAPI_HOST}${rawImage}`
+    const img = `${process.env.NEXTAUTH_URL}${rawImage}`
 
     return { name, description, slug: catSlug, img, colorcat }
 };
