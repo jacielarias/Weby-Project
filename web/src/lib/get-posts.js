@@ -7,8 +7,8 @@ export function getPosts() {
             return res.data.map(post => {
                 const { id, titulo, slug, contenido, portada: rawImage, fecha, category, author } = post;
 
-                const image = `${process.env.NEXTAUTH_URL}${rawImage.url}`;
-                const categoryImg = category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null;
+                const image = `${process.env.STRAPI_URL}${rawImage.url}`;
+                const categoryImg = category?.image?.url ? `${process.env.STRAPI_URL}${category.image.url}` : null;
 
                 return {
                     id,
