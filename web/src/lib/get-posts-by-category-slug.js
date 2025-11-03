@@ -1,5 +1,4 @@
 import { query } from "@/lib/strapi";
-const { STRAPI_HOST } = process.env;
 
 const getPostsByCategorySlug = async (slug, page = 1, pageSize = 6) => {
   const res = await query(
@@ -13,8 +12,8 @@ const getPostsByCategorySlug = async (slug, page = 1, pageSize = 6) => {
 
   const posts = res.data.map(post => {
     const { id, titulo, slug, contenido, portada, fecha, category, author } = post;
-    const image = portada?.url ? `${STRAPI_HOST}${portada.url}` : null;
-    const categoryImg = category?.image?.url ? `${STRAPI_HOST}${category.image.url}` : null;
+    const image = portada?.url ? `${process.env.NEXTAUTH_URL}${portada.url}` : null;
+    const categoryImg = category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null;
 
     return {
       id,
