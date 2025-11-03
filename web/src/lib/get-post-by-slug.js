@@ -1,5 +1,4 @@
 import { query } from "./strapi";
-const { STRAPI_HOST } = process.env;
 
 export async function getPostBySlug(slug) {
     console.log("Buscando slug:", slug);
@@ -19,14 +18,13 @@ export async function getPostBySlug(slug) {
         contenido,
         fecha,
         excerpt,
-        image: portada?.url ? `${STRAPI_HOST}${portada.url}` : null,
+        image: portada?.url ? `${process.env.NEXTAUTH_URL}${portada.url}` : null,
         category: {
             ...category,
-            img: category?.image?.url ? `${STRAPI_HOST}${category.image.url}` : null,
+            img: category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null,
         },
         author: author ? {
             name: author.username,
         } : null,
     };
 }
-
