@@ -12,8 +12,8 @@ const getPostsByCategorySlug = async (slug, page = 1, pageSize = 6) => {
 
   const posts = res.data.map(post => {
     const { id, titulo, slug, contenido, portada, fecha, category, author } = post;
-    const image = portada?.url ? `${process.env.NEXTAUTH_URL}${portada.url}` : null;
-    const categoryImg = category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null;
+    const image = portada?.url ? `${process.env.STRAPI_URL}${portada.url}` : null;
+    const categoryImg = category?.image?.url ? `${process.env.STRAPI_URL}${category.image.url}` : null;
 
     return {
       id,
