@@ -1,10 +1,8 @@
-const { STRAPI_HOST, STRAPI_TOKEN } = process.env
-
 export async function query(path) {
-  const baseUrl = STRAPI_HOST;
+  const baseUrl = process.env.NEXTAUTH_URL || "https://safe-actor-a3f0efe503.strapiapp.com";
 
   const url = `${baseUrl}/api/${path}`;
-  const token = STRAPI_TOKEN;
+  const token = process.env.NEXTAUTH_SECRET;
 
   try {
     const res = await fetch(url, {
