@@ -18,10 +18,10 @@ export async function getPostBySlug(slug) {
         contenido,
         fecha,
         excerpt,
-        image: portada?.url ? `${process.env.NEXTAUTH_URL}${portada.url}` : null,
+        image: portada?.url ? `${process.env.STRAPI_URL}${portada.url}` : null,
         category: {
             ...category,
-            img: category?.image?.url ? `${process.env.NEXTAUTH_URL}${category.image.url}` : null,
+            img: category?.image?.url ? `${process.env.STRAPI_URL}${category.image.url}` : null,
         },
         author: author ? {
             name: author.username,
