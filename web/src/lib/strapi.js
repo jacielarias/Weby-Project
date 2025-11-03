@@ -1,5 +1,5 @@
 export async function query(path) {
-  const baseUrl = process.env.STRAPI_URL || "safe-actor-a3f0efe503.strapiapp.com";
+  const baseUrl = process.env.STRAPI_URL || "https://safe-actor-a3f0efe503.strapiapp.com";
 
   const url = `${baseUrl}/api/${path}`;
   const token = process.env.NEXTAUTH_SECRET;
